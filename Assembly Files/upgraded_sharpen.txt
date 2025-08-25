@@ -1,0 +1,42 @@
+start:             addi R20 R0 0                       /  defining R20 to be the offset 
+                     addi R21 R0 0                       /  defining R21 to be the offset of sw
+                     
+                     lw R1 R20 data1                     / load line0 to R1
+					 addi R20 R0 1                     / R20 = 1
+					 lw R10 R20 data1                 / load line1 to R10 (the up_row register)
+					 sharpen R5 R1 R10           / sharpen line0 (while the down row and the up row are line 1)
+					 sw R5 R21 data2                 / store the result of the sharpened line0 into RAM
+
+
+                     addi R22 R0 -1                      / R22 initialized to -1
+loop:
+					 
+					 addi R22 R22 1                      / R22 = R22 + 1
+					 addi R10 R1 0                        / R10 = R1 = line0 = up_row 
+					 addi R21 R21 1                        / R21 = R21 + 1 = 1
+				     lw R1 R20 data1                     / load line1 to R1  (curr row)					 
+				     addi R20 R20 1                     / R20 = 2
+					 lw R2 R20 data1                  / load line2 to R2 (down row)
+					 sharpen R5 R1 R2             / sharpen line1 
+					 sw R5 R21 data2                 / store the result of the sharpened line1 into RAM
+					 
+					 beqz R22 loop
+					 
+					 addi R10 R1 0                         / R10 = R1 = line2= up_row 
+					 addi R21 R21 1                        / R21 = R21 + 1 = 3
+				     lw R1 R20 data1                     / load line3 to R1  (curr row)					 
+					 sharpen R5 R1 R10             / sharpen line3 
+					 sw R5 R21 data2                 / store the result of the sharpened line3 into RAM
+					 
+					 halt
+					 
+data1:             dc 0xC8323232                        / line0
+
+                       dc 0x32C83232                       / line1
+
+                       dc 0x3232C832                     / line2
+
+                       dc 0x323232C8                    / line3
+                       
+data2:             ds 4
+					 

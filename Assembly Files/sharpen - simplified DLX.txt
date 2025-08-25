@@ -1,0 +1,376 @@
+start:          addi R14 R0 data1    
+
+
+
+                addi R20 R0 3         
+
+
+
+                addi R21 R0 9       
+
+
+
+                addi R16 R0 0         
+
+
+
+                addi R17 R0 0         
+
+
+
+                addi R10 R0 0        
+
+
+
+
+                addi R18 R0 0         
+
+
+
+                addi R22 R18 -1       
+
+
+
+                add R22 R22 R16       
+
+
+
+
+
+
+
+                addi R19 R0 0         
+
+
+
+                addi R25 R19 -1       
+
+
+
+                add R25 R25 R17       
+
+
+
+
+
+
+
+                slti R23 R22 0        
+
+
+
+                beqz R23 2            
+
+
+
+                sub R22 R0 R22        
+
+
+
+                beqz R0 3             
+
+
+
+
+
+
+
+                sgei R23 R22 3       
+
+
+
+                beqz R23 1            
+
+
+
+                addi R22 R0 1         
+
+
+
+
+
+
+
+                slti R23 R25 0        
+
+
+
+                beqz R23 2            
+
+
+
+                sub R25 R0 R25        
+
+
+
+                beqz R0 3             
+
+
+
+
+
+
+
+                sgei R23 R25 3        
+
+
+
+                beqz R23 1            
+
+
+
+                addi R25 R0 1         
+
+
+
+
+
+
+
+                add R26 R22 R22       
+
+
+
+                add R26 R26 R22       
+
+
+
+                add R26 R26 R25       
+
+
+
+                lw R27 R26 data1       
+
+
+
+
+
+
+
+                addi R28 R18 -1       
+
+
+
+                addi R29 R19 -1       
+
+
+
+
+
+
+
+                or R7 R28 R29         
+
+
+
+                bnez R7 5              
+
+
+
+				
+
+				
+
+	    add R3 R27 R0         
+
+
+
+                slli R3 R3            
+
+
+
+                slli R3 R3            
+
+
+
+                add R3 R3 R27         
+
+				
+
+                beqz R0 5              
+
+				
+
+				
+
+                and R7 R28 R29         
+                
+                bnez R7 2
+                
+                sub R3 R0 R27         
+                
+                beqz R0 1
+
+
+
+                addi R3 R0 0
+
+
+
+                add R10 R10 R3        
+
+
+
+
+
+
+
+                addi R19 R19 1        
+
+
+
+                slti R23 R19 3        
+
+
+
+                bnez R23 -38          
+
+
+
+
+
+
+
+                addi R18 R18 1        
+
+
+
+                slti R23 R18 3        
+
+
+
+                bnez R23 -44          
+
+
+
+
+
+
+
+                slti R23 R10 0        
+
+
+
+                beqz R23 2            
+
+
+
+                addi R10 R0 0         
+
+				
+
+	    beqz R0 3 	        
+
+
+
+                sgti R23 R10 255      
+
+
+
+                beqz R23 1            
+
+
+
+                addi R10 R0 255       
+
+
+
+
+
+
+
+	   add R6 R16 R16         
+
+
+
+                add R6 R6 R16         
+
+
+
+                add R6 R6 R17         
+
+
+
+
+
+
+
+                sw R10 R6 data2         
+
+
+
+
+
+
+
+                addi R17 R17 1        
+
+
+
+                slti R23 R17 3        
+
+
+
+                addi R10 R0 0         
+
+
+
+                bnez R23 -60          
+
+
+
+
+
+
+
+                addi R16 R16 1        
+
+
+
+                slti R23 R16 3        
+
+
+
+                bnez R23 -65           
+
+                halt
+
+
+
+                data1: dc 120         
+
+
+
+                       dc 120         
+
+
+
+                       dc 120         
+
+
+
+                       dc 120         
+
+
+
+                       dc 200         
+
+
+
+                       dc 120         
+
+
+
+                       dc 120         
+
+
+
+                       dc 120         
+
+
+
+                       dc 120
+
+                       
+
+                data2: ds 9
