@@ -1,7 +1,7 @@
 # Image Sharpening Extension for a Simplified DLX Processor
 
 ## Overview
-This project extends a simplified DLX RISC processor by introducing a custom SHARPEN instruction that enables efficient execution of a two-dimensional image-sharpening filter in hardware. The design was implemented on a Xilinx Spartan-6 FPGA and evaluated in terms of performance, power, and area. Results show a substantial improvement in execution time, with negligible impact on power consumption and a modest increase in area. An accompanying assembler and software framework were developed to support program generation, testing, and validation against reference outputs.
+This project extends a simplified DLX RISC processor by introducing a custom SHARPEN instruction that enables efficient execution of a two-dimensional image-sharpening filter in hardware. The design was implemented on a Xilinx Spartan-6 FPGA and evaluated in terms of performance, power, and area. Results show a substantial improvement in execution time, with negligible impact on power consumption and a modest increase in area. 
 
 ## Repository Structure
 - **/Area Reports** — FPGA synthesis, mapping, and utilization reports  
